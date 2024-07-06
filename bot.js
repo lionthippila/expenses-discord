@@ -1,7 +1,17 @@
 function sendMessage() {
     var content = document.getElementById("content").value;
+    var amount = document.getElementById("amount").value;
     var imageInput = document.getElementById("fileInput");
     var imageFile = imageInput.files[0];
+
+    // Get current date
+    var currentDate = new Date();
+
+    // Format date as 'dd Month yyyy'
+    var formattedDate = currentDate.getDate() + ' ' + getMonthName(currentDate.getMonth()) + ' ' + currentDate.getFullYear();
+
+    // Append formatted date and amount to the message content  // แก้ไขบรรทัดนี้
+    content = '[' + formattedDate + '] ' + content + ' - Amount: ' + amount +' บาท ';
 
     var formData = new FormData();
     formData.append("content", content);
@@ -22,6 +32,14 @@ function sendMessage() {
 
     request.send(formData);
 }
+
+
+function getMonthName(monthIndex) {
+    var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+                      'August', 'September', 'October', 'November', 'December'];
+    return monthNames[monthIndex];
+}
+
 function previewImage(event) {
     var input = event.target;
     var preview = document.getElementById('previewImage');
