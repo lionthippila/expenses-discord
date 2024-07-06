@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.background-img {
+    background-image: url('1.png');
+    /* background-image: url('https://cdn.discordapp.com/attachments/1005794818829598731/1095736452941365400/image.png'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .box-test {
+    animation: fadeInUp 0.5s forwards;
+        border-radius: 10px;
+        padding: 20px;
+        width: auto;
+        height: auto;
+        backdrop-filter: blur(80px);
+        & .box-img {
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & img {
+                border-radius: 15px;
+                max-width: 100%;
+                height: auto;
+                max-height: 40vh;
+            }
+        }
+        & .box-one {
+            display: grid;
+            grid-template-columns: 1fr;
+            & .box-control {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 8px;
+                & label {
+                    padding: 5px;
+                    color: #ffffff;
+                    font-size: 1em;
+                    width: 100px;
+                    text-align: right;
+                }
+                & input {
+                    outline: 0;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    height: 30px;
+                    width: 150px;
+                }
+                & button {
+                    animation: bounce 2s infinite;
+                    font-size: 15px;
+                    width: 100%;
+                    background-color: #4CAF50;
+                    color: white;
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                }
+            }
+            .box-file {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+                & .upload-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50%;
+                    /* margin-top: 20px; */
+                    background-color: #007bff;
+                    color: #fff;
+                    padding: 5px 20px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+input[type="file"] {
+    display: none;
+}
+
+
+.box-file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+}
